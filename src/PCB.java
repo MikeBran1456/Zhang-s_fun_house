@@ -1,15 +1,19 @@
 class PCB {
+	//parts of a process
 	int ProcessID;
 	int ArrivalTime;
 	String State;
+	//not sure what this one does
 	int PositionOfNextInstructionToExecute;
-	public void PBC (int processId, int arrivalTime, String state){
+	//contructor
+	public PCB (int processId, int arrivalTime, String state){
 		this.ProcessID = processId;
 		this.ArrivalTime = arrivalTime;
 		this.State = state;
 	}
-	//To do: PCB data structure of a process
-	//for example: Process_id, Arrive_time, state,
-	//PositionOfNextInstructionToExecute(PC value)
-	//and so on
+	//helpful return method (can add more later)
+	public String getProcessState(){
+		return this.State;
+	}
+	//TODO make more methods for acquiring data
 }

@@ -1,13 +1,16 @@
-Class CPU {
+package simulation;
+
+class CPU {
 	public boolean BusyOrNot;
-	public int PC; //Your CPU only has one register PC
-	Public int timeslice;
-	public CPU(int settimeslice)
-	{
-		 Timeslice= settimeslice;
-		 BusyOrNot=false;
+	public int PC; // Your CPU only has one register PC
+	public int timeslice;
+
+	public CPU(int settimeslice) {
+		timeslice = settimeslice;
+		BusyOrNot = false;
 	}
-	Public Pair<int PC, String state> execute(Process P){
+
+	public Pair<int PC, String state> execute(Process P){
 		 BusyOrNot=true;
 		 /* read the CPU burst number, say #, from the position
 		PositionOfNextInstructionToExecute of P.
@@ -24,9 +27,11 @@ Class CPU {
 		*/
 		}
 
-		Public BubbleSort(){
-		}
+	public static void  BubbleSort(Process process) {
+	}
 
-		Public Boolean CPUisBusy?()
-				{ return BusyOrNot;}
+	public Boolean CPUisBusy()
+	{
+		return BusyOrNot;
+	}
 }

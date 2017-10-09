@@ -1,15 +1,45 @@
-package simulation;
 
-//Process image class of a process including PCB, code, data and stack
+/*
+ * This class is the image of a particular process
+ * It is incomplete as of now.
+ */
 
-public class ProcessImage {
-	public PCB Pcb_data() {
-		String code;// set to CPU-I/O burst Sequence;
-		// to do: other variable help you computing the latency, response
+class ProcessImage {
+	//instance of PCB for data of a process
+	PCB Pcb_data;
+	//priority integer for later (not sure yet)
+	int Priority;
+	//variables for time calculation later
+	long ProcessCreated;
+	long ProcessFinished;
+	long ProcessIOComplete;
+	long Latency;
+	long Response;
+	//constructor
+	public ProcessImage(int id, int arrivalTime, int priority) {
+		this.Pcb_data = new PCB(id, arrivalTime, "NEW");
+		this.Priority = priority;
+		this.ProcessCreated = System.currentTimeMillis();
 	}
-
-	public void Process(String process) {// I set it as void as a placeholder
-		// set PCB data, code and others
-		// set state as "NEW";
+	//time calcs
+	public void setProcessFinished(long time){
+		this.ProcessFinished = time;
 	}
+	//time calcs
+	public void setProcessIOComplete(long time){
+		this.ProcessIOComplete = time;
+	}
+	//time calcs
+	public int getLatency(){
+		int TotalLatency = 0;
+		TotalLatency = (int)(this.ProcessCreated-this.ProcessFinished);
+		return TotalLatency;
+	}
+	//time calcs
+	public int getResponseTime(){
+		int TotalResponseTime = 0;
+		TotalResponseTime = (int)(this.ProcessCreated - this.ProcessIOComplete);
+		return TotalResponseTime;
+	}
+	//TODO possibly add methods to calculate various features.
 }
